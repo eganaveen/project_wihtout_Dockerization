@@ -11,5 +11,12 @@ pipeline{
       }
     }
     
+    stage('build'){
+      steps{
+        //generate artifact
+        sh 'mvn package'
+      }
+    }
+    
   }
 }
