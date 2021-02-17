@@ -1,14 +1,15 @@
 pipeline{
   agent any
   tools{
-    maven "maven"
+    maven "Maven"
   }
   stages{
-    stage{
-      steps('scm'){
+    stage('scm'){
+      steps{
         //clone source code from SCM
         git 'https://github.com/eganaveen/VProfile.git'
       }
     }
+    
   }
 }
