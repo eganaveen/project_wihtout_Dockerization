@@ -25,5 +25,12 @@ pipeline{
       }
     }
     
+    stage('tomcat'){
+      steps{
+        //deploy to container
+        deploy adapters: [tomcat8(credentialsId: '3c8990f7-f9c2-4f1c-9690-d4368e8c025f', path: '', url: 'http://13.126.231.240:8080/')], contextPath: 'pipelinewithSCM', war: 'target/vprofile-v1.war'
+      }
+    }
+    
   }
 }
