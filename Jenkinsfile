@@ -1,10 +1,5 @@
 pipeline{
   agent any
-  
-  
-  
-  
-  stages{
     stage('scm'){
       steps{
         //clone source code from SCM
