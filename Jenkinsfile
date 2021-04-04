@@ -5,7 +5,7 @@ pipeline{
     stage('scm'){
       steps{
         //clone source code from SCM
-        git 'https://github.com/eganaveen/project_wihtout_Dockerization.g'
+        git 'https://github.com/eganaveen/projectwihtoutDockerization.git'
       }
     }    
    }
