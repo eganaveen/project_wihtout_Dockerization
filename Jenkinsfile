@@ -13,7 +13,7 @@ pipeline{
         sh 'mvn test'
       }
     } 
-    stage('test'){
+    stage('sonarqube'){
       steps{
         //sonarqube test
         sh '''sonar.projectKey=VProfile
