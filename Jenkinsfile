@@ -13,19 +13,18 @@ pipeline{
         sh 'mvn test'
       }
     } 
-    stage('sonarqube'){
-      steps{
-        //sonarqube test
-        sh '''sonar.projectKey=project1
-              sonar.projectName=project1
-              sonar.projectVersion=1.0
-              sonar.login=admin
-              sonar.password=admin
-              sonar.sources=.
-              sonar.binaries=target/classes/com/visualpathit/account/controller/
-              sonar.junit.reportsPath=target/surefire-reports
-              sonar.jacoco.reportPath=target/jacoco.exec'''
-      }
-    } 
+    stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'SonarQubeScanner'
+    }
+    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+        timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+        }
+    }
+    }
    }
  }
