@@ -16,8 +16,8 @@ pipeline{
     stage('sonarqube'){
       steps{
         //sonarqube test
-        sh '''sonar.projectKey=VProfile
-              sonar.projectName=VProfile
+        sh '''sonar.projectKey=Project1
+              sonar.projectName=Project1
               sonar.projectVersion=1.0
               sonar.login=admin
               sonar.password=admin
