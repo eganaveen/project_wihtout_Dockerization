@@ -7,10 +7,10 @@ pipeline{
         git 'https://github.com/eganaveen/projectwihtoutDockerization.git'
       }
     }
-     stage('test'){
+     stage('install'){
       steps{
         //test the source code.
-        sh 'mvn test'
+        sh 'mvn install'
       }
     } 
     stage('upload to nexus repository'){
