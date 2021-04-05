@@ -7,6 +7,8 @@ pipeline{
         git 'https://github.com/eganaveen/projectwihtoutDockerization.git'
       }
     }
+     
+     
      stage('test'){
       steps{
         //test the source code.
