@@ -13,12 +13,6 @@ pipeline{
         sh 'mvn test'
       }
     } 
-    stage('Sonarqube') {
-      steps{
-        withSonarQubeEnv('sonarqube-6'){
-          sh 'mvn sonar:sonar'
-        }
-      }
-    }
+    
    }
  }
