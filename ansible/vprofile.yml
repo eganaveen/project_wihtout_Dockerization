@@ -8,14 +8,19 @@
     apt: name=openjdk-8-jdk state=present
 
   - name: Install tomcat
-    apt: name=tomcat8 state=present
-
+    get_url: url=https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.64/bin/apache-tomcat-8.5.64.tar.gz dest=/home/ansadmin
+    
+  - name: unarchieve tomcat
+    unarchive:
+      src= /home/ansadmin
+      dest= /home/ansadmin
+      remote_src= yes
 
   - name: Download latest VProfile.war file
     get_url: url=http://{{nexusip}}:8081/nexus/content/repositories/VProfile-repo/{{groupid}}/{{time}}/{{build}}/{{vprofile_version}} dest=/tmp/ mode=755
 
-  - name: Stop tomcat service
-    service: name=tomcat state=stopped
+  - name: stop tomcat
+    shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/shutdown.sh &
 
   - name: Copy artifact to tomcat folder
     shell: cp /tmp/{{vprofile_version}} /var/lib/tomcat/webapps
@@ -23,8 +28,8 @@
   - name: Delete link to existing vprofile version
     file: path=/var/lib/tomcat/webapps/VProfile state=absent
 
-  - name: Start tomcat service
-    service: name=tomcat state=started
+  - name: start tomcat
+    shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/startup.sh &
   - wait_for: path=/var/lib/tomcat/webapps/{{time}}-{{build}}
 
   - name: Link latest vprofile version
