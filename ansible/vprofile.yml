@@ -38,7 +38,7 @@
   - wait_for: path=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43.war
 
   - name: Link latest vprofile version
-    file: src=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43.war dest=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43.war state=link
+    file: src=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43 dest=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43 state=link
 
   - name: Stop iptables
     service: name=iptables state=stopped
