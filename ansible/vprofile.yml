@@ -4,10 +4,6 @@
   gather_facts: False
   tasks:
 
-  - name: Install EPEL-release
-    yum: name=epel-release state=present
-
-
   - name: Install java_1.8
     yum: name=java-1.8.0-openjdk.x86_64 state=present
 
