@@ -22,7 +22,7 @@ pipeline{
      stage('ansible'){
        steps{
           //retrieve artifact from nexus and copy to webapss folder in tomcat
-         ansiblePlaybook credentialsId: 'private-key-new', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible/vprofile.yml'
+         ansiblePlaybook credentialsId: '0f05a22c-09ce-4466-8544-93c91e5a3243', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible/vprofile.yml'
        }
      }
    }
