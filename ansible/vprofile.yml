@@ -11,7 +11,9 @@
     get_url: url=https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.64/bin/apache-tomcat-8.5.64.tar.gz dest=/home/ansadmin
     
   - name: Install unzip
-    apt: name=unzip state=present
+    apt: 
+      name: unzip 
+      state: present
     
   - name: unarchieve tomcat
     unarchive:
