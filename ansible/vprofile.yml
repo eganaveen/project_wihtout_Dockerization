@@ -17,7 +17,7 @@
     
   - name: unarchieve tomcat
     unarchive:
-      src: /home/ansadmin
+      src: /home/ansadmin/apache-tomcat-8.5.64.tar.gz
       dest: /home/ansadmin
       remote_src: yes
 
