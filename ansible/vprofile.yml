@@ -22,23 +22,23 @@
       remote_src: yes
 
   - name: Download latest VProfile.war file
-    get_url: url=http://13.127.128.64:8081/nexus/content/repositories/EGA/group_id/artifact_id/40/artifact_id-40.war dest=/tmp/ mode=755
+    get_url: url=http://13.127.128.64:8081/nexus/content/repositories/EGA/group_id/artifact_id/41/artifact_id-41.war dest=/tmp/ mode=755
 
   - name: stop tomcat
     shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/shutdown.sh &
 
   - name: Copy artifact to tomcat folder
-    shell: cp /tmp/{{vprofile_version}} /var/lib/tomcat/webapps
+    shell: cp /tmp/artifact_id-41.war /var/lib/tomcat/webapps
 
   - name: Delete link to existing vprofile version
     file: path=/var/lib/tomcat/webapps/VProfile state=absent
 
   - name: start tomcat
     shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/startup.sh &
-  - wait_for: path=/var/lib/tomcat/webapps/{{time}}-{{build}}
+  - wait_for: path=/var/lib/tomcat/webapps/
 
   - name: Link latest vprofile version
-    file: src=/var/lib/tomcat/webapps/{{time}}-{{build}} dest=/var/lib/tomcat/webapps/VProfile state=link
+    file: src=/var/lib/tomcat/webapps/ dest=/var/lib/tomcat/webapps/VProfile state=link
 
   - name: Stop iptables
     service: name=iptables state=stopped
