@@ -35,10 +35,10 @@
 
   - name: start tomcat
     shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/startup.sh &
-  - wait_for: path=/var/lib/tomcat/webapps/
+  - wait_for: path=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43.war
 
   - name: Link latest vprofile version
-    file: src=/var/lib/tomcat/webapps/ dest=/var/lib/tomcat/webapps/VProfile state=link
+    file: src=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43.war dest=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43.war state=link
 
   - name: Stop iptables
     service: name=iptables state=stopped
