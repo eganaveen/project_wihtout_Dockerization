@@ -22,13 +22,13 @@
       remote_src: yes
 
   - name: Download latest VProfile.war file
-    get_url: url=http://13.127.128.64:8081/nexus/content/repositories/EGA/group_id/artifact_id/41/artifact_id-41.war dest=/tmp/ mode=777
+    get_url: url=http://13.127.128.64:8081/nexus/content/repositories/EGA/group_id/artifact_id/43/artifact_id-43.war dest=/tmp/ mode=777
 
   - name: stop tomcat
     shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/shutdown.sh &
 
   - name: Copy artifact to tomcat folder
-    shell: cp /tmp/artifact_id-41.war /var/lib/tomcat/webapps
+    shell: cp /tmp/artifact_id-43.war /var/lib/tomcat/webapps
 
   - name: Delete link to existing vprofile version
     file: path=/var/lib/tomcat/webapps/VProfile state=absent
