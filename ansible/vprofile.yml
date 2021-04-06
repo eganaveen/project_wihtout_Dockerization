@@ -37,5 +37,4 @@
     shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/startup.sh &
   - wait_for: path=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-43.war
 
-  - name: Stop iptables
-    service: name=iptables state=stopped
+  
