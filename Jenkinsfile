@@ -19,5 +19,11 @@ pipeline{
         nexusArtifactUploader artifacts: [[artifactId: 'artifact_id', classifier: '', file: 'target/vprofile-v1.war', type: 'war']], credentialsId: '8c09a263-d6a3-40bc-862e-9e0eb1ed0bf1', groupId: 'group_id', nexusUrl: '65.0.104.251:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'EGA', version: '$BUILD_ID'
       }
     } 
+     stage('retrieve artifact from nexus and copy to webapss folder in tomcat'){
+       steps{
+          //retrieve artifact from nexus and copy to webapss folder in tomcat
+         ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible/vprofile.yml'
+       }
+     }
    }
  }
