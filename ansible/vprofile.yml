@@ -22,7 +22,7 @@
       remote_src: yes
 
   - name: Download latest VProfile.war file
-    get_url: url=http://172.31.39.126:8081/nexus/content/repositories/VProfile-repo/{{groupid}}/{{time}}/{{build}}/{{vprofile_version}} dest=/tmp/ mode=755
+    get_url: url=http://13.127.128.64:8081/nexus/content/repositories/EGA/group_id/artifact_id/{{$BUILD_ID}}/artifact_id-{{BUILD_ID}}.war dest=/tmp/ mode=755
 
   - name: stop tomcat
     shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/shutdown.sh &
