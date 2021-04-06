@@ -8,7 +8,7 @@
     apt: name=openjdk-8-jdk state=present
 
   - name: Install tomcat
-    get_url: url=https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.64/bin/apache-tomcat-8.5.64.tar.gz dest=/home/ansadmin
+    get_url: url=https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.64/bin/apache-tomcat-8.5.64.tar.gz dest=/home/ansadmin mode=777
     
   - name: Install unzip
     apt: 
