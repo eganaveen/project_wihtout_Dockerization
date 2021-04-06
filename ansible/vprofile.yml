@@ -5,7 +5,7 @@
   tasks:
 
   - name: Install java_1.8
-    apt: name=java-1.8.0-openjdk.x86_64 state=present
+    apt: name=openjdk-8-jdk state=present
 
   - name: Install tomcat
     apt: name=tomcat state=present
