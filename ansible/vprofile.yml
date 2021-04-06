@@ -5,10 +5,10 @@
   tasks:
 
   - name: Install java_1.8
-    yum: name=java-1.8.0-openjdk.x86_64 state=present
+    apt: name=java-1.8.0-openjdk.x86_64 state=present
 
   - name: Install tomcat
-    yum: name=tomcat state=present
+    apt: name=tomcat state=present
 
 
   - name: Download latest VProfile.war file
