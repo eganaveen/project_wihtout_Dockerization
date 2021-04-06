@@ -8,7 +8,7 @@
     apt: name=openjdk-8-jdk state=present
 
   - name: Install tomcat
-    apt: name=tomcat state=present
+    apt: name=tomcat8 state=present
 
 
   - name: Download latest VProfile.war file
