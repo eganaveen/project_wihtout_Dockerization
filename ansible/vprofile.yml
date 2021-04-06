@@ -28,10 +28,10 @@
     shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/shutdown.sh &
 
   - name: Copy artifact to tomcat folder
-    shell: cp /tmp/artifact_id-43.war /var/lib/tomcat/webapps
+    shell: cp /tmp/artifact_id-43.war /home/ansadmin/apache-tomcat-8.5.64/webapps
 
   - name: Delete link to existing vprofile version
-    file: path=/var/lib/tomcat/webapps/VProfile state=absent
+    file: path=/home/ansadmin/apache-tomcat-8.5.64/webapps/artifact_id-41.war state=absent
 
   - name: start tomcat
     shell: nohup /home/ansadmin/apache-tomcat-8.5.64/bin/startup.sh &
